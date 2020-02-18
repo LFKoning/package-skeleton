@@ -1,0 +1,33 @@
+repos:
+
+  # Some default pre-commit hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev:  master
+    hooks:
+    - id: check-yaml
+      name: Check YAML formatting
+
+    - id: mixed-line-ending
+      name: Check line endings
+
+    - id: check-merge-conflict
+      name: Check merge conflicts
+
+  # Local black and pylint to match user settings
+  - repo: local
+    hooks:
+
+    - id: black
+      name: Format code using Black
+      stages: [commit]
+      language: system
+      entry: black
+      types: [python]
+      files: (^src/|^tests/)
+
+    - id: pylint
+      name: Check code style using Pylint
+      language: system
+      stages: [commit]
+      entry: pylint
+      types: [python]
