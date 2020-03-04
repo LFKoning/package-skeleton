@@ -1,5 +1,8 @@
 .PHONY: clean clean-test clean-pyc clean-build install develop
 
+# Check git is installed
+GIT_INSTALLED := $(shell conda --version > /dev/null 2>&1; echo $$?)
+
 ## Remove all build, test, coverage and compiler artifacts
 clean: clean-build clean-pyc clean-test
 
@@ -48,5 +51,7 @@ install: clean
 ## Install development package in the active environment
 develop: clean
 	python -m pip install -e .[dev]
-	if [ ! -d ".git" ]; then git init; fi
+ 	ifeq (0, $(GIT_INSTALLED))
+		if [ ! -d ".git" ]; then git init; fi
+ 	endif
 	pre-commit install
