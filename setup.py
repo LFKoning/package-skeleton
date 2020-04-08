@@ -19,7 +19,7 @@ EXTRAS_REQUIRE = {
 }
 
 setuptools.setup(
-    author="Athor Name",
+    author="Author Name",
     author_email="author@email.com",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
@@ -31,17 +31,17 @@ setuptools.setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
     ],
-    description="Description of you package.",
+    description="Description of your package.",
     install_requires=REQUIREMENTS,
     extras_require=EXTRAS_REQUIRE,
     long_description=README + "\n\n" + HISTORY,
-    keywords="some_package",
-    name="some_package",
+    keywords="package, skeleton, pre-commit, black, pylint",
+    name="my_package",
     version="0.1.0",
     packages=setuptools.find_packages("src"),
     package_dir={"": "src"},
     setup_requires=SETUP_REQUIREMENTS,
     test_suite="tests",
     tests_require=TEST_REQUIREMENTS,
-    url="https://github.com/author/some_package",
+    url="https://github.com/author/my_package",
 )
